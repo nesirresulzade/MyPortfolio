@@ -11,21 +11,48 @@ body{
     background: linear-gradient(to right, #ffffff, #d6eaf8);
 }
 
+.experience {
+    min-height: 50vh; /* Daha kiçik ölçü */
+    padding: 4rem 12%;
+    margin-bottom: 1rem;
+}
+
+.projects {
+    min-height: 50vh; /* Daha balanslı ölçü */
+    padding: 4rem 12%;
+    margin-bottom: 1rem;
+}
+
+.contact {
+    min-height: 35vh; /* Daha kiçik ölçü */
+    padding: 2rem 12%; /* Üst və alt boşluğu azaltdım */
+    margin-bottom: 0.5rem; /* Footer ilə olan məsafəni azaldır */
+}
+
+
 .header {
     position: fixed;
     top: 1rem;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    gap: 5rem;
     background-color: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(8px);
     color: white;
-    padding: 0.5rem 1.5rem;
+    padding: 1rem 2rem;
     border-radius: 3rem;
     z-index: 1000;
+    width: 1050px;
+    max-width: 100%;
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
 }
 
 .logo {
@@ -35,21 +62,25 @@ body{
     text-wrap: nowrap;
     transition: 0.3s ease-in-out;
 }
-
 .logo:hover {
-    transform: scale(1.1);
-    gap: 2rem;
+    transform: scale(1.2);  /* Üzərinə gəldikdə 1.2 dəfə böyüyür */
+    transition: transform 0.3s ease-in-out;  /* Effektin hamar keçməsi üçün */
 }
 
 .nav-links {
     display: flex;
     gap: 2rem;
+    flex-grow: 1;
+    justify-content: center;
 }
 
 li a {
     position: relative;
     color: white;
     font-weight: 300;
+}
+header .nav-links li a{
+    font-size: 1.1rem;
 }
 
 li a::before {
@@ -340,7 +371,7 @@ section {
     flex-direction: column;
     align-items: center; 
     justify-content: center; 
-    min-height: 100vh; 
+    min-height: 50vh; /* 100 idi*/
     gap: 1.5rem; 
 }
 
@@ -354,6 +385,8 @@ footer {
     gap: 1rem;
     align-items: center;
     justify-content: center;
+    margin-top: 0;
+    padding-top: 1rem;
 }
 
 footer ul {
@@ -365,6 +398,7 @@ footer ul {
 footer ul li a {
     color: black;
     font-weight: 600;
+    font-size: 1.1rem;
 }
 
 .copyright {
@@ -391,6 +425,7 @@ footer ul li a {
 
 @media(max-width:1280px){
     header{
+        width: auto;
         padding: 1rem 2rem;
         gap: 2rem;
     }
@@ -414,6 +449,7 @@ footer ul li a {
 
 @media(max-width:768px){
     header{
+        width: auto;
         gap: 1rem;
         padding: 1rem 1rem;
     }
@@ -448,19 +484,24 @@ footer ul li a {
     header #menu-icon{
         display: block;
     }
-    .nav-links{
+    .nav-links {
         position: absolute;
         top: 100%;
         margin-top: 1rem;
-        width: 100%;
+        left: 50%; 
+        transform: translateX(-50%); 
+        width: 80%; 
         padding: 1rem;
         color: white;
         display: flex;
         flex-direction: column;
         text-align: center;
-        background: rgba(0,0,0,0.9);
+        background: rgba(0, 0, 0, 0.9);
         border-radius: 3rem;
         display: none;
+        max-height: 80vh;
+        overflow-y: auto;
+        transition: width 0.3s ease-in-out; 
     }
     .nav-links li{
         margin-top: 1.5rem;
@@ -470,6 +511,7 @@ footer ul li a {
         display: block;
     }
     header{
+        width: 100%;
         padding: 1rem 5rem;
         gap: 8rem;
     }
@@ -481,15 +523,24 @@ footer ul li a {
         width: 80vw;
     }
     .input-box input {
-        padding: 1rem 2rem;        /* Daha kiçik padding */
-        font-size: 1.5rem;         /* Yazı ölçüsünü kiçiltmək */
-        width: 100%;                /* Tam genişlik */
-        max-width: 400px;           /* Maksimum genişlik təyin edirik */
+        padding: 1rem 2rem;      
+        font-size: 1.5rem;         
+        width: 100%;               
+        max-width: 400px;           
     }
     .input-box input::placeholder{
         font-size: 1.5rem;
     }
     footer ul{
         gap: 1rem;
+    }
+    .contact .section-title{
+        font-size: 2.5rem;
+    }
+    .projects .section-title{
+        font-size: 2.5rem;
+    }
+    .experience .section-title{
+        font-size: 2.5rem;
     }
 }
